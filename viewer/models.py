@@ -9,11 +9,30 @@ class Genre(Model):
 
 
     def __repr__(self):
-        return f"Genre: {self.name}"
+        return f"Genre(name={self.name})"
 
 
     def __str__(self):
         return self.name
+
+
+class Country(Model):
+    name = CharField(max_length=32, null=False, blank=False, unique=True)
+
+
+    class Meta:
+        ordering = ['name']
+        verbose_name_plural = "Countries"
+
+
+    def __repr__(self):
+        return f"Country(name={self.name})"
+
+
+    def __str__(self):
+        return self.name
+
+
 
 
 
