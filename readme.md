@@ -11,4 +11,11 @@ pip install django
 pip freeze > requirements.txt
 django-admin startproject <nazev_projektu> .
 ```
-lala
+
+
+# Project Hollymovies
+- [x] 1 seznam filmů(abecedně)
+- [ ] 2 filtrování
+  - rok
+  - žánr
+  - 
