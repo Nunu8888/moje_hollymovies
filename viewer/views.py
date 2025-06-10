@@ -9,3 +9,9 @@ def movies(request):
     context = {'movies': movies_list}
     return render(request, 'movies.html', context)
 
+
+def movie(request, pk):
+    if Movie.objects.filter(id=pk).exists():
+        return render(request, "movie.html", {'movie': Movie.objects.get(id=pk)})
+    return render(request, 'home.html')
+

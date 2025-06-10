@@ -60,6 +60,18 @@ class Creator(Model):
         return f"{self.name} {self.surname}"
 
 
+    def full_name(self):
+        full_name_ = ""
+        if self.name:
+            full_name_ += self.name + ' '
+        if self.artistic_name:
+            full_name_ += f'"{self.artistic_name}" '
+        if self.surname:
+            full_name_ += self.surname
+        return full_name_
+
+
+
 class Movie(Model):
     title_orig = CharField(max_length=64, null=False, blank=False, unique=False)
     title_cz = CharField(max_length=64, null=True, blank=True)
@@ -89,6 +101,20 @@ class Movie(Model):
         if self.year:
             return f"{self.title_orig} ({self.year})"
         return f"{self.title_orig}"
+
+
+    def length_format(self):
+        # převod délky filmu z minut na formát h:mm
+        # 122 min -> 2:02
+        if self.length:
+            hours = self.length // 60
+            minutes = self.length % 60
+            return f"{hours}:{minutes:02}"
+        return None
+
+
+
+
 
 
 
