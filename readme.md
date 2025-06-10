@@ -15,7 +15,7 @@ django-admin startproject <nazev_projektu> .
 
 # Project Hollymovies
 - [x] 1 seznam filmů(abecedně)
-- [ ] 2 filtrování
+- [x] 2 filtrování
   - rok
   - žánr
   - 
