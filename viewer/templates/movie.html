@@ -12,14 +12,16 @@
     <hr class="my-4">
     <div class="row">
         <div class="col-md-6">
-            <p><strong>Žánry</strong>
+            <p><strong>Žánry:</strong>
                 {% for genre in movie.genres.all %}
-                    <span class=" badge badge-secondary">{{ genre }}</span>
+                    <span class=" badge badge-secondary">
+                        <a href="{% url 'genre' genre.id %}" class="text-white">{{ genre }}</a>
+                    </span>
                 {% empty %}
                     bez žánru
                 {% endfor %}
             </p>
-            <p><strong>Země</strong>
+            <p><strong>Země:</strong>
                 {% for country in movie.countries.all %}
                     <span class=" badge badge-secondary">
                         <a href="{% url 'country' country.id %}" class="text-white">{{ country }}</a>
@@ -38,21 +40,21 @@
 
         </div>
         <div class="col-md-6">
-            <p><strong>Režie</strong>
+            <p><strong>Režie:</strong>
                 {% for director in movie.directors.all %}
                     <a href="{% url 'creator' director.id %}">{{ director.full_name }}</a>{% if not forloop.last %},{% endif %}
                 {% empty %}
                     bez režiséra
                 {% endfor %}
             </p>
-            <p><strong>Hrají</strong>
+            <p><strong>Hrají:</strong>
                 {% for actor in movie.actors.all %}
                     <a href="{% url 'creator' actor.id %}">{{ actor.full_name }}</a>{% if not forloop.last %},{% endif %}
                 {% empty %}
                     bez herce
                 {% endfor %}
             </p>
-            <p><strong>Hudba</strong>
+            <p><strong>Hudba:</strong>
                 {% for composer in movie.composers.all %}
                     <a href="{% url 'creator' composer.id %}">{{ composer.full_name }}</a>{% if not forloop.last %},{% endif %}
                 {% empty %}
@@ -61,7 +63,7 @@
             </p>
         </div>
     </div>
-    <p><strong>Popis</strong></p>
+    <p><strong>Popis:</strong></p>
     <p class="text-justify">{{ movie.description }}</p>
 
     <p class="mt-3">
