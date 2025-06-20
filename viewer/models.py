@@ -76,7 +76,7 @@ class Movie(Model):
     title_orig = CharField(max_length=64, null=False, blank=False, unique=False)
     title_cz = CharField(max_length=64, null=True, blank=True)
     genres = ManyToManyField(Genre, blank=True, related_name='movies')
-    directors = ManyToManyField(Creator, blank=True, related_name='directoring')
+    directors = ManyToManyField(Creator, blank=True, related_name='directing')
     actors = ManyToManyField(Creator, blank=True, related_name='acting')
     composers = ManyToManyField(Creator, blank=True, related_name='composing')
     length = IntegerField(null=True, blank=True)
