@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 
 from viewer.views import home, MoviesListView, MovieDetailView, CreatorsListView, ActorsView, CreatorDetailView, \
-    CountriesListView, CountryDetailView, GenresListView, GenreDetailView
+    CountriesListView, CountryDetailView, GenresListView, GenreDetailView, GenreFormView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -36,5 +36,7 @@ urlpatterns = [
     path('country/<int:pk>/', CountryDetailView.as_view(), name='country'),
     path('genres/', GenresListView.as_view(), name='genres'),
     path('genre/<int:pk>', GenreDetailView.as_view(), name='genre'),
+    path('genre/create/', GenreFormView.as_view(), name='genre_create'),
+
 
 ]
