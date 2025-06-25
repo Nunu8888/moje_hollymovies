@@ -40,7 +40,7 @@ class Creator(Model):
     artistic_name = CharField(max_length=32, null=True, blank=True)
     date_of_birth = DateField(null=True, blank=True)
     date_of_death = DateField(null=True, blank=True)
-    country = ForeignKey(Country, null=True, on_delete=SET_NULL, related_name='creators')
+    country = ForeignKey(Country, null=True, blank=True, on_delete=SET_NULL, related_name='creators')
     biography = TextField(null=True, blank=True)
     created = DateTimeField(auto_now_add=True)
     updated = DateTimeField(auto_now=True)
