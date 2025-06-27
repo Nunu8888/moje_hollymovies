@@ -92,8 +92,8 @@ class MovieModelForm(ModelForm):
         return initial
 
     def clean_length(self):
-        initial = int(self.cleaned_data['length'])
-        if initial is not None and initial <= 0:
+        initial = self.cleaned_data['length']
+        if initial is not None and int(initial) <= 0:
             raise ValidationError('Délka musí být kladné číslo.')
         return initial
 
