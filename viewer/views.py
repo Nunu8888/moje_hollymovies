@@ -66,7 +66,10 @@ class MovieUpdateView(UpdateView):
         return super().form_invalid(form)
 
 
-
+class MovieDeleteView(DeleteView):
+    template_name = 'confirm_delete.html'
+    model = Movie
+    success_url = reverse_lazy('movies')
 
 
 
