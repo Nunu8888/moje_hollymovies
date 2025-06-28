@@ -7,7 +7,15 @@
 {% block content %}
     <form method="POST">
     {% csrf_token %}
+         {% comment "formulář tabulky %}{% endcomment %}
         <table>{{ form.as_table }}</table>
+        {% comment "formulář pomocí odstavců, pomocí nečíslovaného seznamu %}
+        {{ form.as_p }}
+
+        <ul>
+            {{ form.as_ul }}
+        </ul>
+        {% endcomment %}
         <input type="submit" id="id_submit" value="Uložit" class="btn btn-primary">
     </form>
 {% endblock %}
