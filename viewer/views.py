@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
@@ -117,18 +118,18 @@ class CreatorUpdateView(UpdateView):
 
 
 class CreatorDeleteView(DeleteView):
-    template_name = 'confirm_delete .html'
+    template_name = 'confirm_delete.html'
     model = Creator
     success_url = reverse_lazy('creators')
 
 
-class CountriesListView(ListView):
+class CountriesListView(LoginRequiredMixin, ListView):
     template_name = 'countries.html'
     model = Country
     context_object_name = 'countries'
 
 
-class CountryDetailView(DetailView):
+class CountryDetailView(LoginRequiredMixin, DetailView):
     template_name = 'country.html'
     model = Country
     context_object_name = 'country'
@@ -162,13 +163,13 @@ class CountryDeleteView(DeleteView):
 
 
 
-class GenresListView(ListView):
+class GenresListView(LoginRequiredMixin, ListView):
     template_name = 'genres.html'
     model = Genre
     context_object_name = 'genres'
 
 
-class GenreDetailView(DetailView):
+class GenreDetailView(LoginRequiredMixin, DetailView):
     template_name = 'genre.html'
     model = Genre
     context_object_name = 'genre'
